@@ -145,8 +145,8 @@ struct LevelX3<Nulltype, TypeList, level, index, Unit>
 
 template <typename T, class TypeList, int index, int level, template <typename> typename Unit>
 struct LevelX1 : public LevelX3<typename TypeAt<NextNonLinearIndex<level, index>::index, TypeList>::res, TypeList, NextNonLinearIndex<level, index>::index, level + 1, Unit>,
-								 public LevelX3<typename TypeAt<NextNonLinearIndex<level, index>::index + 1, TypeList>::res, TypeList, NextNonLinearIndex<level, index>::index + 1, level + 1, Unit>,
-								 public LevelX3<typename TypeAt<NextNonLinearIndex<level, index>::index + 2, TypeList>::res, TypeList, NextNonLinearIndex<level, index>::index + 2, level + 1, Unit>
+		 public LevelX3<typename TypeAt<NextNonLinearIndex<level, index>::index + 1, TypeList>::res, TypeList, NextNonLinearIndex<level, index>::index + 1, level + 1, Unit>,
+		 public LevelX3<typename TypeAt<NextNonLinearIndex<level, index>::index + 2, TypeList>::res, TypeList, NextNonLinearIndex<level, index>::index + 2, level + 1, Unit>
 {
 	Unit<T> unit;
 };
@@ -159,8 +159,8 @@ struct LevelX3 : public LevelX1<typename TypeAt<NextLinearIndex<level, index>::i
 
 template <class TypeList, template <typename> typename Unit>
 struct GenCustomHierarchy : public LevelX3<typename TypeAt<1, TypeList>::res, TypeList, 1, 1, Unit>,
-														public LevelX3<typename TypeAt<2, TypeList>::res, TypeList, 2, 1, Unit>,
-														public LevelX3<typename TypeAt<3, TypeList>::res, TypeList, 3, 1, Unit>
+			    public LevelX3<typename TypeAt<2, TypeList>::res, TypeList, 2, 1, Unit>,
+			    public LevelX3<typename TypeAt<3, TypeList>::res, TypeList, 3, 1, Unit>
 {
 	Unit<typename TypeAt<0, TypeList>::res> unit;
 };
