@@ -74,3 +74,26 @@ struct Size<TypeList<Args...>>
 {
 	static constexpr int res = 1 + Size<typename TypeList<Args...>::Tail>::res;
 };
+
+template <typename T, typename U>
+class Conversion
+{
+	using Small = char;
+	struct Big { char x[2]; };
+	static Small Test(const U&);
+	static Big Test(...);
+	static T makeT();
+
+public:
+	static constexpr bool exists = sizeof(Small) == sizeof(Test(makeT()));
+	static constexpr bool equal = false;
+};
+
+
+template <typename T>
+class Conversion<T, T>
+{
+public:
+	static constexpr bool exists = true;
+	static constexpr bool equal = true;
+};
