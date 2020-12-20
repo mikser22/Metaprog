@@ -53,10 +53,10 @@ public:
 	Nodes<VertexesTypes> vertexes;
 	Edges<EdgesTypes> edges;
 
-	// Валидация
+	// Р’Р°Р»РёРґР°С†РёСЏ
 	static_assert(Size<VertexesTypes>::res > 0, "ERROR while creating Graph. Vertex count should be more than 0");
 	static_assert(Size<EdgesTypes>::res == Size<VertexesTypes>::res * Size<VertexesTypes>::res, "ERROR while creating Graph. Invalid Edges");
-	//TODO: Добавитьб проверку для неорграфа что матрица типов ребер симметрична
+	//TODO: Р”РѕР±Р°РІРёС‚СЊР± РїСЂРѕРІРµСЂРєСѓ РґР»СЏ РЅРµРѕСЂРіСЂР°С„Р° С‡С‚Рѕ РјР°С‚СЂРёС†Р° С‚РёРїРѕРІ СЂРµР±РµСЂ СЃРёРјРјРµС‚СЂРёС‡РЅР°
 	
 
 	Graph() {
@@ -72,21 +72,21 @@ public:
 
 	template<int index, typename T>
 	void AddVertex(T vertex) {
-		// добавляет вершину T с номером index 
+		// РґРѕР±Р°РІР»СЏРµС‚ РІРµСЂС€РёРЅСѓ T СЃ РЅРѕРјРµСЂРѕРј index 
 		//std::cout << "Add vertex " << index << " " << isOriented << std::endl;
 		VertexHelper<index>::SetVertex(vertexes, vertex);
 	}
 
 	template<int index>
 	decltype(auto) GetVertex() {
-		// Возвращает вершину графа под индексом index
+		// Р’РѕР·РІСЂР°С‰Р°РµС‚ РІРµСЂС€РёРЅСѓ РіСЂР°С„Р° РїРѕРґ РёРЅРґРµРєСЃРѕРј index
 		//std::cout << "Get vertex " << index << std::endl;
 		return VertexHelper<index>::GetVertex(vertexes);
 	}
 
 	template<int index1, int index2, typename T>
 	void AddEdge(T edge) {
-		// добавляет ребро T между вершинами под индексами index1 и index2 
+		// РґРѕР±Р°РІР»СЏРµС‚ СЂРµР±СЂРѕ T РјРµР¶РґСѓ РІРµСЂС€РёРЅР°РјРё РїРѕРґ РёРЅРґРµРєСЃР°РјРё index1 Рё index2 
 		//std::cout << "Add edge " << index1 << " " << index2 << std::endl;
 		EdgeHelper<(index1 * Size<VertexesTypes>::res) + index2>::SetEdge(edges, edge);
 		if (!isOrient && index1 != index2) {
@@ -96,7 +96,7 @@ public:
 
 	template<int index1, int index2>
 	decltype(auto) GetEdge() {
-		// Возвращает ребро между index1 и index2 вершинами графа 
+		// Р’РѕР·РІСЂР°С‰Р°РµС‚ СЂРµР±СЂРѕ РјРµР¶РґСѓ index1 Рё index2 РІРµСЂС€РёРЅР°РјРё РіСЂР°С„Р° 
 		return EdgeHelper<(index1 * Size<VertexesTypes>::res) + index2>::GetEdge(edges);
 	}
 

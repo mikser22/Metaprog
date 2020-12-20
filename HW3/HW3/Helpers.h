@@ -69,7 +69,7 @@ struct EdgeHelper<0> {
 };
 
 
-// VertexExecuteHelper - помощник для обхода всех вершин графа и выполнения некоторого действия 
+// VertexExecuteHelper - РїРѕРјРѕС‰РЅРёРє РґР»СЏ РѕР±С…РѕРґР° РІСЃРµС… РІРµСЂС€РёРЅ РіСЂР°С„Р° Рё РІС‹РїРѕР»РЅРµРЅРёСЏ РЅРµРєРѕС‚РѕСЂРѕРіРѕ РґРµР№СЃС‚РІРёСЏ 
 template<int index, int size>
 struct VertexExecuteHelper
 {
