@@ -40,7 +40,6 @@ struct EdgeHelper {
 	template<typename T, typename Edges>
 	static void SetEdge(Edges& edges, T&& edge)
 	{
-		std::cout << "EdgeHelper " << index << std::endl;
 		EdgeHelper<index - 1>::SetEdge(edges.next, edge);
 	}
 
@@ -57,7 +56,6 @@ struct EdgeHelper<0> {
 	template<typename T, typename Edges>
 	static void SetEdge(Edges& edges, T&& edge)
 	{
-		std::cout << "EdgeHelper 0 " << std::endl;
 		edges.current = std::make_unique<typename Edges::Type>(edge);
 	}
 
